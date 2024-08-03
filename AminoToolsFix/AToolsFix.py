@@ -2,10 +2,11 @@ import os
 import sys
 import time
 import aminofixfix
-
+from utils.scripts import Parse
 try:
 	from colorama import Fore, init
 	from utils.Users import Users
+	from utils.request import Updater
 except:
 	os.system("pip install colorama")
 	os.system("pip install sqlite3")
@@ -22,6 +23,7 @@ class Colors:
 
 class AToolsFix:
 	def __init__(self):
+		Updater().getVersion()
 		self.client = aminofixfix.Client()
 		status = self.login()
 
@@ -75,60 +77,83 @@ class AToolsFix:
 		print("""
 
 ____ObjectIDs____
-1. get Community ID from link
-2. get UserID from link
-3. get UserID from community
-4. get PostID from community
+1. get my communities
+2. get Community ID from link
+3. get UserID from link
+4. get UserID from community
+5. get PostID from community
 ______Users______
-5. get all users(saved to file)
-6. get online users(saved to file)
-7. get user followers
-8. get user following
-9. get user info
+6. get all users(saved to file)
+7. get online users(saved to file)
+8. get user followers
+9. get user following
+10. get user info
+_____Scripts_____
+11. Parse communities users
 """)
 		select = int(input("> "))
 		if select == 1:
+			os.system("cls")
+			com = self.client.sub_clients(size=100)
+			titles = com.name
+			users = com.usersCount
+			comId = com.comId
+			link = com.link
+			for name, count, Id, url in zip(titles,users,comId,link):
+				print(f'''title: {name}
+usersCount: {count}
+comId: {Id}
+link: {url}
+{"-"*30}
+''')
+			input("Press Enter: ")
+			self.Functions()
+		elif select == 2:
 			URL = input("[!] Enter link to community: ")
 			print(f"ID: {self.client.get_from_code(URL).comId}")
 			input("Press Enter: ")
 			self.Functions()
-		elif select == 2:
-			URL = input("[!] Enter link to user: ")
+		elif select == 3:
+			URL = input("[!] Enter link to user(Global): ")
 			print(f"ID: {self.client.get_from_code(URL).objectId}")
 			input("Press Enter: ")
 			self.Functions()
-		elif select == 3:
+		elif select == 4:
 			URL = input("[!] Enter link to user from community: ")
 			comID = self.client.get_from_code(URL).comId
 			SubClient = aminofixfix.SubClient(mainClient=self.client, comId=comID)
 			print(f"UserID: {SubClient.get_from_code(URL).objectId}")
 			input("Press Enter: ")
 			self.Functions()
-		elif select == 4:
+		elif select == 5:
 			URL = input("[!] Enter link to post from community: ")
 			comID = self.client.get_from_code(URL).comId
 			SubClient = aminofixfix.SubClient(mainClient=self.client, comId=comID)
 			print(f"PostID: {SubClient.get_from_code(URL).objectId}")
 			input("Press Enter: ")
 			self.Functions()
-		elif select == 5:
+		elif select == 6:
 			Users(mainClient=self.client).get_all_users()
 			input("Press Enter: ")
 			self.Functions()
-		elif select == 6:
+		elif select == 7:
 			Users(mainClient=self.client).get_online_users()
 			input("Press Enter: ")
 			self.Functions()
-		elif select == 7:
+		elif select == 8:
 			Users(mainClient=self.client).get_user_followers()
 			input("Press Enter: ")
 			self.Functions()
-		elif select == 8:
+		elif select == 9:
 			Users(mainClient=self.client).get_user_following()
 			input("Press Enter: ")
 			self.Functions()
-		elif select == 9:
+		elif select == 10:
 			Users(mainClient=self.client).get_user_info()
+			input("Press Enter: ")
+			self.Functions()
+		elif select == 11:
+			Parse(mainClient=self.client).CommunitiesUsers()
 			input("Press Enter: ")
 			self.Functions()
 
