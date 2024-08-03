@@ -23,7 +23,7 @@ class Updater:
 				current_version = file.read().strip()
 		except FileNotFoundError:
 		# Если файл не найден, текущую версию считать как "неизвестную"
-			current_version = "неизвестная версия"
+			current_version = "Unknown"
 	
 		# Проверить, отличается ли текущая версия от новой
 		if new_version != current_version:
