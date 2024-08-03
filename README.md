@@ -2,7 +2,7 @@
 
 # AToolsFix
 
-Version: 1.0.0
+Version: 1.0.5
 
 Author: RedPiar
 
@@ -20,7 +20,8 @@ This script currently cannot replace the old AminoTools, but our version works r
     1. [AToolsFix Class](#atoolsfix)
         1. [login](#login)
         2. [Functions](#functions)
-4. [Contacts](#contacts)
+4. [Change Log](#change-log)
+5. [Contacts](#contacts)
 
 ## Installation
 
@@ -96,22 +97,41 @@ To select a function, enter the corresponding number.
 def Functions(self):
     os.system("cls")
     print("""
-
 ____ObjectIDs____
-1. Get Community ID from link
-2. Get UserID from link
-3. Get UserID from community
-4. Get PostID from community
+1. get my communities
+2. get Community ID from link
+3. get UserID from link
+4. get UserID from community
+5. get PostID from community
 ______Users______
-5. Get all users (saved to file)
-6. Get online users (saved to file)
-7. Get user followers
-8. Get user following
-9. Get user info
+6. get all users(saved to file)
+7. get online users(saved to file)
+8. get user followers
+9. get user following
+10. get user info
+_____Scripts_____
+11. Parse communities users
 """)
 ```
 
-## Contacts
+# Change-Log
+
+The project on GitHub updates with a delay (5-10 minutes)
+
+## [1.0.5] - 2024-08-03
+### Added
+- New Feature: get my communities
+- New Section: Scripts
+- New Script: Parse communities users
+- Check version && Notification for new version AToolsFix
+
+### Description
+- Get my communities - Retrieves all your communities and the necessary information about them, then outputs it to the console.
+- Section Scripts - Section for future embedded scripts.
+- Parse communities users - Retrieves all users from all your communities (up to 10K users per community), then records them in the DataBase.db file in the All_users table.
+- Check version && Notification for new version AToolsFix - When a new version appears on GitHub, the script will notify you about it upon launch.
+  
+# Contacts
 - [Telegram](https://t.me/Redpiar)
 - [TGChannel](https://t.me/BotesForTelegram)
 - [TikTok](https://www.tiktok.com/@redpiar)
