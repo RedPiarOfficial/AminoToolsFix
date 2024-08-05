@@ -1,9 +1,11 @@
 import aminofixfix
 from utils.BD import Controller
+from utils.logger import Logger
 import time
 class Parse:
 	def __init__(self, mainClient):
 		self.client = mainClient
+		self.log = Logger().get_logger()
 
 	def CommunitiesUsers(self):
 		com = self.client.sub_clients(size=100)
@@ -53,7 +55,8 @@ following: {followng}
 					start += end
 					request +=1
 					if not userId:
-						print(f"break format: {ComName}")
+						if self.log:
+							self.log.warning(f"break format: {ComName}")
 						time.sleep(2)
 						break
 					
