@@ -2,11 +2,11 @@
 
 # AToolsFix
 
-Version: 1.0.5
+Version: 1.1.0
 
 Author: RedPiar
 
-Development time for this version: 4 hours
+Development time for this version: 6 hours
 
 Comment:
 
@@ -118,6 +118,44 @@ _____Scripts_____
 
 The project on GitHub updates with a delay (5-10 minutes)
 
+## [1.1.0] - 2024-08-05
+### Added
+- New Section: Account
+- New Feature: ProfileInfo
+- New Feature: wallet
+- New Feature: GetChatThreads
+- logging
+- settings
+- settings[logging]
+- settings[QuickLogin]
+
+### Fixed
+- Updated code readbility and understanding/ The functions were divided into sections
+
+### Innovations
+- You can now enable and disable logging through the settings.ini file. By default, logging is enabled (True), but you can disable it (False).
+- You can set up quick login to your account in case the SID expires. To do this, go to settings.ini and change status to True, and also provide your email and password.
+
+### Description
+Functions:
+- ProfileInfo - The first version of the function, displays some information (for example, your UserId).
+- Wallet - Shows the balance of your wallet.
+- GetChatThreads - Displays your global chats (Maximum=25).
+
+Logging:
+
+Logging is used to display warnings and for debugging, but currently, logging does not respond to exceptions.
+
+Settings:
+
+- logging:
+    - Status: There are two statuses (True, False). Set the flag to True to enable, and set the flag to False to disable.
+    - log_to_file: Log_to_file: There are two statuses (True, False). If enabled, logging will be written to a .log file.
+- QuickLogin - You can set up quick login to your account in case the SID expires:
+    - Status: There are two statuses (True, False). Set the flag to True to enable, and set the flag to False to disable.
+    - Email: Your email for quick login.
+    - Password: Your account password.
+
 ## [1.0.5] - 2024-08-03
 ### Added
 - New Feature: get my communities
@@ -130,8 +168,17 @@ The project on GitHub updates with a delay (5-10 minutes)
 - Section Scripts - Section for future embedded scripts.
 - Parse communities users - Retrieves all users from all your communities (up to 10K users per community), then records them in the DataBase.db file in the All_users table.
 - Check version && Notification for new version AToolsFix - When a new version appears on GitHub, the script will notify you about it upon launch.
-  
+
 # Contacts
-- [Telegram](https://t.me/Redpiar)
-- [TGChannel](https://t.me/BotesForTelegram)
-- [TikTok](https://www.tiktok.com/@redpiar)
+| **Category**   | **Description** | **Link** |
+|----------------|-----------------|----------|
+| **My Contacts**|                 |          |
+| Telegram       |                 | [Telegram](https://t.me/Redpiar) |
+| TG Channel     |                 | [TG Channel](https://t.me/BotesForTelegram) |
+| TikTok         |                 | [TikTok](https://www.tiktok.com/@redpiar) |
+| **Reference**  | **AminoFixFix** |          |
+| Author         |                 | [Author](https://github.com/imperialwool) |
+| GitHub         |                 | [GitHub](https://github.com/imperialwool/Amino.fix.fix/tree/main) |
+| Docs           |                 | [Docs](https://aminofixfix.readthedocs.io/en/latest/) |
+
+
